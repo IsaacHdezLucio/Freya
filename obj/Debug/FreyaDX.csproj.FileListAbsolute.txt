@@ -11,3 +11,4 @@ C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaD
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.exe
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.pdb
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.MainIDE.resources
+C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.exe.config

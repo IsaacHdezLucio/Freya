@@ -112,5 +112,26 @@ namespace FreyaDX
             else
                 _toasty += 1;
         }
+
+        private void generarCodigoIntermedioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string codigoFuente = CajaEditor.Text;
+            var inputStream = new AntlrInputStream(codigoFuente);
+            var lexer = new FreyaLexer(inputStream);
+            var tokens = new CommonTokenStream(lexer);
+            var parser = new FreyaParser(tokens);
+            var tree = parser.codeParse();
+
+            var visitor = new FreyaIntermediateCodeVisitor();
+            visitor.Visit(tree);
+
+            var instrucciones = visitor.GetInstructions();
+            foreach (var instr in instrucciones)
+            {
+                cajaIntermedio.Text += instr + @"
+"; // cajaIntermedio.Text = $"{cajaIntermedio}{instr}";
+                Console.WriteLine(instr);
+            }
+        }
     }
 }

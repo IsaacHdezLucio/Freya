@@ -35,6 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCodigoIntermedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -49,6 +50,7 @@
             this.gZDBDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sLADELightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FreyaPic = new System.Windows.Forms.PictureBox();
+            this.cajaIntermedio = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FreyaPic)).BeginInit();
@@ -98,9 +100,17 @@
             // 
             // herramientasToolStripMenuItem
             // 
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.generarCodigoIntermedioToolStripMenuItem });
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
+            // 
+            // generarCodigoIntermedioToolStripMenuItem
+            // 
+            this.generarCodigoIntermedioToolStripMenuItem.Name = "generarCodigoIntermedioToolStripMenuItem";
+            this.generarCodigoIntermedioToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.generarCodigoIntermedioToolStripMenuItem.Text = "Generar código intermedio";
+            this.generarCodigoIntermedioToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoIntermedioToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -216,6 +226,15 @@
             this.FreyaPic.TabStop = false;
             this.FreyaPic.Click += new System.EventHandler(this.FreyaPic_Click);
             // 
+            // cajaIntermedio
+            // 
+            this.cajaIntermedio.Location = new System.Drawing.Point(615, 53);
+            this.cajaIntermedio.Name = "cajaIntermedio";
+            this.cajaIntermedio.ReadOnly = true;
+            this.cajaIntermedio.Size = new System.Drawing.Size(199, 231);
+            this.cajaIntermedio.TabIndex = 9;
+            this.cajaIntermedio.Text = "";
+            // 
             // MainIDE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +242,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1104, 554);
+            this.Controls.Add(this.cajaIntermedio);
             this.Controls.Add(this.CajaEditor);
             this.Controls.Add(this.CajaConsola);
             this.Controls.Add(this.toolStrip1);
@@ -242,6 +262,10 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.RichTextBox cajaIntermedio;
+
+        private System.Windows.Forms.ToolStripMenuItem generarCodigoIntermedioToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem sLADELightToolStripMenuItem;
 

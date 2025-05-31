@@ -227,9 +227,9 @@
             // 
             // cajaIntermedio
             // 
+            this.cajaIntermedio.Enabled = false;
             this.cajaIntermedio.Location = new System.Drawing.Point(615, 53);
             this.cajaIntermedio.Name = "cajaIntermedio";
-            this.cajaIntermedio.ReadOnly = true;
             this.cajaIntermedio.Size = new System.Drawing.Size(199, 231);
             this.cajaIntermedio.TabIndex = 9;
             this.cajaIntermedio.Text = "";

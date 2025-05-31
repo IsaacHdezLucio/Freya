@@ -74,7 +74,7 @@ public partial class MainIDE : Form
         cajaIntermedio.Text = ""; // Limpia la caja de texto cada vez que se ejecuta de nuevo
         foreach (var instr in instrucciones)
         {
-            cajaIntermedio.Text += string.Join(instr, "\n");
+            cajaIntermedio.Text += $@"{string.Join("", instr + "\n")}";
             WriteLine(instr); // Imprime la instrucción en la consola. (Modo desarrollador)
         }
     }

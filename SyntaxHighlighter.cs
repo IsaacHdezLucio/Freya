@@ -55,6 +55,7 @@ public class SyntaxHighlighter
 
     #endregion
 
+
     public SyntaxHighlighter(RichTextBox editor)
     {
         _editor = editor;

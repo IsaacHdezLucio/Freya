@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
@@ -22,22 +23,12 @@ public partial class MainIDE : Form
     private void MainIDE_Load(object sender, EventArgs e)
     {
         // Imprime la fecha y hora al iniciar el programa
-        CajaConsola.Text +=
-            string.Concat($"\n{string.Format("{0} // {1:hh:mm:ss}", DateTime.Now.ToLongDateString(), DateTime.Now)}\n");
-
+        CajaConsola.Text += string.Concat($"\n{DateTime.Now.ToLongDateString()} // {DateTime.Now:hh:mm:ss}\n");
         // Carga el tema oscuro por defecto
         gZDBDarkToolStripMenuItem_Click(null, null);
     }
 
-    #region Funcionalidad del compilador
-
-    private void BtnLimpiar_Click(object sender, EventArgs e)
-    {
-        var resultado = MessageBox.Show(this, @"Se limpiará el editor de texto completamente.",
-            @"¿Estás seguro?",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-        if (resultado == DialogResult.Yes) CajaEditor.Text = "";
-    }
+    #region Funcionalidad del compilador (Compilación de código y limpiar editor de código)
 
     private void BtnCompilar_Click(object sender, EventArgs e)
     {
@@ -58,6 +49,18 @@ public partial class MainIDE : Form
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 
+    private void BtnLimpiar_Click(object sender, EventArgs e)
+    {
+        var resultado = MessageBox.Show(this, @"Se limpiará el editor de texto completamente.",
+            @"¿Estás seguro?",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+        if (resultado == DialogResult.Yes) CajaEditor.Text = "";
+    }
+
+    #endregion
+
+    #region Generar código intermedio y objecto
+
     private void generarCodigoIntermedioToolStripMenuItem_Click(object sender, EventArgs e)
     {
         var codigoFuente = CajaEditor.Text;
@@ -71,12 +74,31 @@ public partial class MainIDE : Form
         visitor.Visit(tree);
 
         var instrucciones = visitor.GetInstructions();
-        cajaIntermedio.Text = ""; // Limpia la caja de texto cada vez que se ejecuta de nuevo
-        foreach (var instr in instrucciones)
-        {
-            cajaIntermedio.Text += $@"{string.Join("", instr + "\n")}";
-            WriteLine(instr); // Imprime la instrucción en la consola. (Modo desarrollador)
-        }
+        // Limpia la caja de texto cada vez que se ejecuta de nuevo
+        CajaIntObj.Text = "";
+        foreach (var instr in instrucciones) CajaIntObj.Text += $@"{string.Join("", instr + "\n")}";
+
+        // Habilita la opción de codigo objeto
+        generarCódigoObjetoToolStripMenuItem.Enabled = true;
+    }
+
+    private void generarCódigoObjetoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        // Obtener el código intermedio desde la caja de texto o desde el visitor
+        var codigoIntermedio = CajaIntObj.Text;
+
+        // Parsear o procesar el código intermedio
+        var instruccionesIntermedias =
+            codigoIntermedio.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+        // Crear el generador de código objeto
+        var generadorCodigoObjeto = new CodigoObjeto();
+
+        // Generar instrucciones de código objeto
+        var codigoObjeto = generadorCodigoObjeto.GenerarCodigoObjeto(instruccionesIntermedias);
+
+        // Mostrar el código objeto en la caja de texto correspondiente
+        CajaIntObj.Text = string.Join("\r\n", codigoObjeto);
     }
 
     #endregion
@@ -97,25 +119,6 @@ public partial class MainIDE : Form
         CajaEditor.ForeColor = Color.FromName("ControlText");
 
         BackColor = Color.FromName("ControlLightLight");
-    }
-
-    private int _toasty = 1;
-
-    private void FreyaPic_Click(object sender, EventArgs e)
-    {
-        if (_toasty == 3)
-        {
-            FreyaPic.Image = Resources.Toasty_MK3;
-            try
-            {
-                new SoundPlayer(@"c:\Users\gameg\Downloads\Toasty!.wav").Play();
-            }
-            catch (Exception)
-            {
-                // ignored
-            }
-        }
-        else _toasty += 1;
     }
 
     #endregion

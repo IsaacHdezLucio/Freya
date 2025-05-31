@@ -33,9 +33,9 @@
             this.CajaEditor = new System.Windows.Forms.RichTextBox();
             this.CajaConsola = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarCodigoIntermedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generarCódigoObjetoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -49,11 +49,9 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.gZDBDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sLADELightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FreyaPic = new System.Windows.Forms.PictureBox();
-            this.cajaIntermedio = new System.Windows.Forms.RichTextBox();
+            this.CajaIntObj = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FreyaPic)).BeginInit();
             this.SuspendLayout();
             // 
             // CajaEditor
@@ -84,22 +82,16 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.archivoToolStripMenuItem, this.herramientasToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.herramientasToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1104, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
             // herramientasToolStripMenuItem
             // 
-            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.generarCodigoIntermedioToolStripMenuItem });
+            this.herramientasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { this.generarCodigoIntermedioToolStripMenuItem, this.generarCódigoObjetoToolStripMenuItem });
             this.herramientasToolStripMenuItem.Name = "herramientasToolStripMenuItem";
             this.herramientasToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.herramientasToolStripMenuItem.Text = "Herramientas";
@@ -110,6 +102,14 @@
             this.generarCodigoIntermedioToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.generarCodigoIntermedioToolStripMenuItem.Text = "Generar código intermedio";
             this.generarCodigoIntermedioToolStripMenuItem.Click += new System.EventHandler(this.generarCodigoIntermedioToolStripMenuItem_Click);
+            // 
+            // generarCódigoObjetoToolStripMenuItem
+            // 
+            this.generarCódigoObjetoToolStripMenuItem.Enabled = false;
+            this.generarCódigoObjetoToolStripMenuItem.Name = "generarCódigoObjetoToolStripMenuItem";
+            this.generarCódigoObjetoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.generarCódigoObjetoToolStripMenuItem.Text = "Generar código objeto";
+            this.generarCódigoObjetoToolStripMenuItem.Click += new System.EventHandler(this.generarCódigoObjetoToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -211,28 +211,17 @@
             this.sLADELightToolStripMenuItem.Text = "SLADE (Light)";
             this.sLADELightToolStripMenuItem.Click += new System.EventHandler(this.sLADELightToolStripMenuItem_Click);
             // 
-            // FreyaPic
+            // CajaIntObj
             // 
-            this.FreyaPic.BackColor = System.Drawing.Color.Transparent;
-            this.FreyaPic.Cursor = System.Windows.Forms.Cursors.Default;
-            this.FreyaPic.Image = global::FreyaDX.Properties.Resources.FreyaSword;
-            this.FreyaPic.ImageLocation = "";
-            this.FreyaPic.Location = new System.Drawing.Point(820, 159);
-            this.FreyaPic.Name = "FreyaPic";
-            this.FreyaPic.Size = new System.Drawing.Size(222, 155);
-            this.FreyaPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.FreyaPic.TabIndex = 1;
-            this.FreyaPic.TabStop = false;
-            this.FreyaPic.Click += new System.EventHandler(this.FreyaPic_Click);
-            // 
-            // cajaIntermedio
-            // 
-            this.cajaIntermedio.Enabled = false;
-            this.cajaIntermedio.Location = new System.Drawing.Point(615, 53);
-            this.cajaIntermedio.Name = "cajaIntermedio";
-            this.cajaIntermedio.Size = new System.Drawing.Size(199, 231);
-            this.cajaIntermedio.TabIndex = 9;
-            this.cajaIntermedio.Text = "";
+            this.CajaIntObj.AutoWordSelection = true;
+            this.CajaIntObj.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.CajaIntObj.Cursor = System.Windows.Forms.Cursors.No;
+            this.CajaIntObj.Location = new System.Drawing.Point(615, 53);
+            this.CajaIntObj.Name = "CajaIntObj";
+            this.CajaIntObj.ReadOnly = true;
+            this.CajaIntObj.Size = new System.Drawing.Size(466, 231);
+            this.CajaIntObj.TabIndex = 9;
+            this.CajaIntObj.Text = "";
             // 
             // MainIDE
             // 
@@ -241,12 +230,11 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1104, 554);
-            this.Controls.Add(this.cajaIntermedio);
+            this.Controls.Add(this.CajaIntObj);
             this.Controls.Add(this.CajaEditor);
             this.Controls.Add(this.CajaConsola);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.FreyaPic);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -257,12 +245,13 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FreyaPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
-        private System.Windows.Forms.RichTextBox cajaIntermedio;
+        private System.Windows.Forms.ToolStripMenuItem generarCódigoObjetoToolStripMenuItem;
+
+        private System.Windows.Forms.RichTextBox CajaIntObj;
 
         private System.Windows.Forms.ToolStripMenuItem generarCodigoIntermedioToolStripMenuItem;
 
@@ -277,10 +266,8 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox CajaEditor;
-        private System.Windows.Forms.PictureBox FreyaPic;
         private System.Windows.Forms.RichTextBox CajaConsola;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem herramientasToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;

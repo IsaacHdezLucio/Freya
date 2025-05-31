@@ -15,7 +15,7 @@ public class CodigoBase
         FreyaVisitor visitor = new();
         visitor.Visit(context);
 
-        return visitor.Args; //.ToString();
+        return visitor.Args;
     }
 }
 
@@ -24,26 +24,23 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
     public object Args { get; set; }
     public Dictionary<string, object> Variables = new();
 
-//  Code parser
+    //  Code parser
     public override object VisitCodeParse([NotNull] FreyaParser.CodeParseContext context)
     {
-        foreach (var statementContext in context.statement())
-        {
-            Visit(statementContext);
-        }
-
-        if (context.scriptDef() != null)
-            ; //            Visit(context.scriptDef(0).); // Visit(context.scriptDef()); // Visit(context.scriptDef());
+        foreach (var statementContext in context.statement()) Visit(statementContext);
+        // if (context.scriptDef() != null) Visit(context.scriptDef());
         return null;
     }
 
+    #region Funciones para operaciones aritmeticas
+
+    /// <summary>
+    /// Esta función convierte un valor string a numerico y si es operación matematica realiza su calculo.  
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public object Aritmetica(string value)
     {
-        /*
-        if (value.Contains("+") || value.Contains("-") || value.Contains("*") || value.Contains("/"))
-            ;
-        return value;
-    */
         try
         {
             var dt = new System.Data.DataTable();
@@ -92,6 +89,27 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
         return null;
     }
 
+    // Override del método VisitValueExpr
+    public override object VisitValueExpr([NotNull] FreyaParser.ValueExprContext context)
+    {
+        return Visit(context.value());
+    }
+
+    // Override del método VisitIdExpr
+    public override object VisitIdExpr([NotNull] FreyaParser.IdExprContext context)
+    {
+        string id = context.ID().GetText();
+        if (Variables.ContainsKey(id))
+        {
+            return Variables[id];
+        }
+
+        Console.WriteLine($@"Variable no definida: {id}");
+        return 0; // Valor por defecto
+    }
+
+    #endregion
+
     public override object VisitFunctionCall([NotNull] FreyaParser.FunctionCallContext context)
     {
         // Obtener el nombre de la función
@@ -102,7 +120,7 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
         var arguments = argumentList?.argument() ?? Array.Empty<FreyaParser.ArgumentContext>();
 
         // Imprimir el árbol del contexto para depuración
-        Console.WriteLine(context.ToStringTree());
+        // Console.WriteLine(context.ToStringTree());
 
         // Solo procesar si la función es "shMsg" y hay argumentos
         if (functionName == "shMsg" && arguments.Length > 0)
@@ -117,7 +135,8 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
                 if ((argText.StartsWith("\"") && argText.EndsWith("\"")) ||
                     (argText.StartsWith("'") && argText.EndsWith("'")))
                     // Elimina las comillas y agrega al resultado
-                    valorF.Append(argText.Substring(1, argText.Length - 2));
+                    valorF.Append(argText.Replace("\"", "").Replace("'", "")
+                        .Trim()); // valorF.Append(argText.Substring(1, argText.Length - 2));
                 else if (Variables.TryGetValue(argText, out var variableValue))
                     // Si es una variable existente, agrega su valor
                     valorF.Append(variableValue?.ToString() ?? string.Empty);
@@ -141,49 +160,19 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
             string id = context.ID().GetText();
             if (Variables.ContainsKey(id))
                 return Variables[id];
-            else
-            {
-                Console.WriteLine($@"Variable no definida: {id}");
-                return null;
-            }
-        }
-        else
-        {
-            return Visit(context.expression());
-        }
-    }
-
-    // -------------------------
-    // Arithmetical
-
-    // Override del método VisitValueExpr
-    public override object VisitValueExpr([NotNull] FreyaParser.ValueExprContext context)
-    {
-        return Visit(context.value());
-    }
-
-    // Override del método VisitIdExpr
-    public override object VisitIdExpr([NotNull] FreyaParser.IdExprContext context)
-    {
-        string id = context.ID().GetText();
-        if (Variables.ContainsKey(id))
-        {
-            return Variables[id];
-        }
-        else
-        {
             Console.WriteLine($@"Variable no definida: {id}");
-            return 0; // Valor por defecto
+            return null;
         }
+
+        return Visit(context.expression());
     }
 }
 
 // Intermedio
-
 public class FreyaIntermediateCodeVisitor : FreyaBaseVisitor<string>
 {
-    private int tempCount = 0;
-    private List<string> instructions = new List<string>();
+    private int tempCount;
+    private List<string> instructions = new();
 
     // Generar nuevo temporal
     private string NewTemp()
@@ -233,13 +222,9 @@ public class FreyaIntermediateCodeVisitor : FreyaBaseVisitor<string>
     public override string VisitArgument([NotNull] FreyaParser.ArgumentContext context)
     {
         if (context.ID() != null)
-        {
             return context.ID().GetText();
-        }
-        else
-        {
-            return Visit(context.expression());
-        }
+
+        return Visit(context.expression());
     }
 
     // Visit expression: manejar operaciones con temporales
@@ -264,6 +249,8 @@ public class FreyaIntermediateCodeVisitor : FreyaBaseVisitor<string>
         instructions.Add($"{temp} = {left} {op} {right}");
         return temp;
     }
+
+    #region Visitors de variables y tipos de datos
 
     public override string VisitParenExpr([NotNull] FreyaParser.ParenExprContext context)
     {
@@ -299,6 +286,8 @@ public class FreyaIntermediateCodeVisitor : FreyaBaseVisitor<string>
     {
         return context.STRING_SINGLE().GetText();
     }
+
+    #endregion
 
     // Puedes agregar más overrides para otras reglas según tu gramática
 }

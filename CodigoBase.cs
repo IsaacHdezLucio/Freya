@@ -134,9 +134,8 @@ public class FreyaVisitor : FreyaBaseVisitor<object>
                 // Verifica si el argumento es un literal de cadena (comillas simples o dobles)
                 if ((argText.StartsWith("\"") && argText.EndsWith("\"")) ||
                     (argText.StartsWith("'") && argText.EndsWith("'")))
-                    // Elimina las comillas y agrega al resultado
-                    valorF.Append(argText.Replace("\"", "").Replace("'", "")
-                        .Trim()); // valorF.Append(argText.Substring(1, argText.Length - 2));
+                    // Elimina las comillas y agrega al resultado -> valorF.Append(argText.Substring(1, argText.Length - 2));
+                    valorF.Append(argText.Replace("\"", "").Replace("'", ""));
                 else if (Variables.TryGetValue(argText, out var variableValue))
                     // Si es una variable existente, agrega su valor
                     valorF.Append(variableValue?.ToString() ?? string.Empty);

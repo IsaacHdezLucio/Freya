@@ -67,7 +67,6 @@
             this.CajaEditor.Size = new System.Drawing.Size(597, 490);
             this.CajaEditor.TabIndex = 1;
             this.CajaEditor.Text = "";
-            this.CajaEditor.TextChanged += new System.EventHandler(this.CajaEditor_TextChanged);
             // 
             // CajaConsola
             // 

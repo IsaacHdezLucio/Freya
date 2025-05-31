@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.Media;
-using System.Text;
 using System.Windows.Forms;
 using Antlr4.Runtime;
 using FreyaDX.Properties;
@@ -11,18 +10,13 @@ namespace FreyaDX;
 
 public partial class MainIDE : Form
 {
-    private SyntaxHighlighter highlighter;
-
     public MainIDE()
     {
         InitializeComponent();
 
-        highlighter = new SyntaxHighlighter(CajaEditor);
-
-        CajaEditor.Text = @":i shMsg(""Hola Mundo"")";
-
-        // Opcional: resaltar al cambiar texto
-        // CajaEditor.TextChanged += (s, e) => { highlighter.Highlight(); };
+        // Código de inicio y carga de colores
+        new SyntaxHighlighter(CajaEditor);
+        CajaEditor.Text = string.Concat(":i suma = %f(1 + 1)\n:i shMsg(\"Hola Mundo desde freya v\", suma)");
     }
 
     private void MainIDE_Load(object sender, EventArgs e)
@@ -88,17 +82,6 @@ public partial class MainIDE : Form
     #endregion
 
     #region Colores y tema de compilador
-
-    /// <summary>
-    ///     Función que se actualiza cada vez que el texto cambia.
-    ///     Util para pintar el texto de colores al escribir una palabra reservada.
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    private void CajaEditor_TextChanged(object sender, EventArgs e)
-    {
-        // CajaEditor.TextChanged += (s, e) => { highlighter.Highlight(); };
-    }
 
     private void gZDBDarkToolStripMenuItem_Click(object sender, EventArgs e)
     {

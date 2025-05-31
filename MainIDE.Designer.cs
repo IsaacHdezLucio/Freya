@@ -36,6 +36,7 @@
             this.herramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarCodigoIntermedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generarCódigoObjetoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -82,7 +83,7 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.herramientasToolStripMenuItem });
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { this.herramientasToolStripMenuItem, this.acercaDeToolStripMenuItem });
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1104, 24);
@@ -110,6 +111,13 @@
             this.generarCódigoObjetoToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.generarCódigoObjetoToolStripMenuItem.Text = "Generar código objeto";
             this.generarCódigoObjetoToolStripMenuItem.Click += new System.EventHandler(this.generarCódigoObjetoToolStripMenuItem_Click);
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de Freya";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -216,6 +224,7 @@
             this.CajaIntObj.AutoWordSelection = true;
             this.CajaIntObj.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.CajaIntObj.Cursor = System.Windows.Forms.Cursors.No;
+            this.CajaIntObj.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.CajaIntObj.Location = new System.Drawing.Point(615, 53);
             this.CajaIntObj.Name = "CajaIntObj";
             this.CajaIntObj.ReadOnly = true;
@@ -248,6 +257,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
 
         private System.Windows.Forms.ToolStripMenuItem generarCódigoObjetoToolStripMenuItem;
 

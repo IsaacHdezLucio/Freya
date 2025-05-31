@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodigoBase.cs" />
+    <Compile Include="CodigoIntermedio.cs" />
+    <Compile Include="CodigoObjeto.cs" />
     <Compile Include="FreyaCode\FreyaBaseListener.cs" />
     <Compile Include="FreyaCode\FreyaBaseVisitor.cs" />
     <Compile Include="FreyaCode\FreyaLexer.cs" />

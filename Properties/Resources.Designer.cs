@@ -90,11 +90,12 @@ namespace FreyaDX.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string Miniatura {
+        internal static System.Drawing.Bitmap Miniatura1 {
             get {
-                return ResourceManager.GetString("Miniatura", resourceCulture);
+                object obj = ResourceManager.GetObject("Miniatura1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

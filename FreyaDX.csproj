@@ -61,6 +61,12 @@
     <Compile Include="FreyaCode\FreyaListener.cs" />
     <Compile Include="FreyaCode\FreyaParser.cs" />
     <Compile Include="FreyaCode\FreyaVisitor.cs" />
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainIDE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyntaxHighlighter.cs" />
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainIDE.resx">
       <DependentUpon>MainIDE.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FreyaSword.png" />
-    <None Include="Resources\GHM.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\compile.png" />
@@ -120,7 +128,9 @@
     <Content Include="FreyaCode\FreyaLexer.interp" />
     <Content Include="FreyaCode\FreyaLexer.tokens" />
     <Content Include="FreyaLang.xml" />
+    <Content Include="Resources\BG.jpg" />
     <Content Include="Resources\Miniatura.ico" />
+    <Content Include="Resources\Miniatura1.jpg" />
     <Content Include="Resources\palette_generate.png" />
     <Content Include="Resources\Toasty_MK3.png" />
     <None Include="Resources\text.png" />

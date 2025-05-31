@@ -123,5 +123,5 @@ public partial class MainIDE : Form
 
     #endregion
 
-    private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) => new Info().ShowDialog();
+    private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) => new InfoForm().ShowDialog();
 }

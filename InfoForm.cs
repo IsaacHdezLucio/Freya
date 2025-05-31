@@ -3,15 +3,14 @@ using System.Windows.Forms;
 
 namespace FreyaDX;
 
-public partial class Info : Form
+public partial class InfoForm : Form
 {
-    public Info()
+    public InfoForm()
     {
         InitializeComponent();
     }
 
-    
-    private void PictureEasterEgg_Click(object sender, EventArgs e)
+    private void FreyaPB_Click(object sender, EventArgs e)
     {
     }
 }

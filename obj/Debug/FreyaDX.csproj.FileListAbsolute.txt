@@ -12,3 +12,20 @@ C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaD
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.pdb
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.MainIDE.resources
 C:\Users\gameg\OneDrive\Documents\Escuela\Lenguajes y Autómatas II\repos\FreyaDX\obj\Debug\FreyaDX.InfoForm.resources
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\FreyaDX.exe.config
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\FreyaDX.exe
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\FreyaDX.pdb
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\Antlr4.Runtime.Standard.dll
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\Antlr4.Runtime.Standard.xml
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.csproj.AssemblyReference.cache
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.InfoForm.resources
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.MainIDE.resources
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.Properties.Resources.resources
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.csproj.GenerateResource.cache
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.csproj.CoreCompileInputs.cache
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.csproj.Up2Date
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.exe
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.pdb
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\Antlr3.Runtime.dll
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\bin\Debug\Antlr3.Runtime.pdb
+C:\Users\HP\Documents\ESCUELA\9no Semestre\Automatas 2\Freya-main\Freya-main\obj\Debug\FreyaDX.exe.config
